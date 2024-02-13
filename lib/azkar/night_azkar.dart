@@ -120,7 +120,7 @@ class _NightAzkarScreenState extends State<NightAzkarScreen> {
   }
 
   void scheduleRepeatingNotification(
-    List<String> eveningList,
+    List<String> NightList,
     int selectedEndTimeIndex,
     int selectedIntervalIndex,
   ) async {
@@ -191,7 +191,7 @@ class _NightAzkarScreenState extends State<NightAzkarScreen> {
     int intervals = timeDifference.inMinutes ~/ intervalInMinutes;
 
     // Schedule notifications with the selected interval
-    for (int i = 0; i < intervals && i < eveningList.length; i++) {
+    for (int i = 0; i < intervals && i < NightList.length; i++) {
       DateTime scheduledTime =
           notificationStartTime.add(Duration(minutes: i * intervalInMinutes));
 
@@ -202,7 +202,7 @@ class _NightAzkarScreenState extends State<NightAzkarScreen> {
         id: notificationId,
         channelKey: 'basic_channel',
         title: 'أذكار المساء',
-        body: eveningList[i], // Use the body from the list
+        body: NightList[i], // Use the body from the list
         scheduled: true,
         year: scheduledTime.year,
         month: scheduledTime.month,
